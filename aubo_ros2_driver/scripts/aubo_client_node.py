@@ -42,7 +42,7 @@ class TcpClientService(Node):
         func = func.strip()
 
         # List of classes that DO NOT use robot_prefix
-        NO_PREFIX_CLASSES = ["Math"]
+        NO_PREFIX_CLASSES = ["Math", "RuntimeMachine"]
 
         if '.' in func:
             # Example: "Math.add" → no prefix
