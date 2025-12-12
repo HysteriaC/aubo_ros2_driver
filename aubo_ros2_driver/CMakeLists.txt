@@ -52,6 +52,7 @@ find_package(std_srvs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(aubo_dashboard_msgs REQUIRED)
 find_package(aubo_msgs REQUIRED)
+find_package(aubo_interfaces REQUIRED)
 
 find_package(Boost REQUIRED)
 find_package(Threads REQUIRED)
@@ -113,6 +114,21 @@ install(
   TARGETS aubo_ros2_control_node 
   DESTINATION lib/${PROJECT_NAME}
 )
+
+add_executable(aubo_ros2_pub
+  src/aubo_ros2_pub.cpp
+)
+
+ament_target_dependencies(aubo_ros2_pub
+    controller_manager 
+    rclcpp
+    aubo_interfaces)
+
+install(
+  TARGETS aubo_ros2_pub
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(
   TARGETS aubo_robot_driver_plugin
   DESTINATION lib
