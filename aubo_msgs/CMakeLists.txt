@@ -14,6 +14,9 @@ set(msg_files
   msg/MasterboardDataMsg.msg
   msg/RobotModeDataMsg.msg
   msg/ToolDataMsg.msg
+  msg/IoControlState.msg
+  msg/RobotConfigState.msg
+  msg/RobotManageState.msg
 )
 
 set(srv_files
@@ -21,6 +24,13 @@ set(srv_files
   srv/SetSpeedSliderFraction.srv
   srv/SetIO.srv
   srv/JsonRpc.srv
+  srv/SetAnalogOutput.srv
+  srv/SetDigitalOutput.srv
+  srv/SetHandguide.srv
+  srv/SetTcpOffset.srv
+  srv/SetToolIoConfig.srv
+  srv/SetToolIoInput.srv
+  srv/SetToolVoltage.srv
 )
 
 if(BUILD_TESTING)
@@ -38,4 +48,3 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 ament_export_dependencies(rosidl_default_runtime)
 
 ament_package()
-
